@@ -1,0 +1,52 @@
+<h1>Buscar guías con dato: <small class="text-capitalize"> {{texto}} </small></h1>
+
+<!-- buscar.component.html -->
+
+<div class="container mt-4">
+    <h2>Lista de Guías</h2>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button 
+            class="btn btn-primary"
+            (click)="volverAtras()">
+            <i class="fa fa-arrow-left"></i> Regresar
+        </button>
+      </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Número de Guía</th>
+                <th>Fecha de Envío</th>
+                <th>País Origen</th>
+                <th>Nombre Remitente</th>
+                <th>Detalles Facturas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let guia of guias">
+                <td>{{ guia.numero_guia }}</td>
+                <td>{{ guia.fecha_envio }}</td>
+                <td>{{ guia.pais_origen }}</td>
+                <td>{{ guia.nombre_remitente }}</td>
+                <td>
+                    <div *ngIf="guia.facturas.length > 0; else noFacturas">
+                        <ul *ngFor="let factura of guia.facturas">
+                            <li >
+                                <a [routerLink]="['/factura', factura.factura_id]">
+                                    Establecimiento: {{ factura.establecimiento }}
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/factura', factura.factura_id]">
+                                    Total: {{ factura.total }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ng-template #noFacturas>
+                        <span>No hay facturas</span>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

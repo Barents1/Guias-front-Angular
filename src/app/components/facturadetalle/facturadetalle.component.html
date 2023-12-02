@@ -1,0 +1,30 @@
+<h5>Detalle de la factura</h5>
+<div class="row">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button 
+          class="btn btn-primary"
+          (click)="volverAtras()">
+          <i class="fa fa-arrow-left"></i> Regresar
+      </button>
+    </div>
+  </div>
+<div class="container mt-4">
+    <h2>Detalles de Factura</h2>
+    <div *ngIf="factura; else loading" class="card">
+        <div class="card-header">
+            Factura #{{ factura?.factura_id }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Establecimiento: {{ factura?.establecimiento }}</h5>
+            <p class="card-text">Punto de Emisión: {{ factura?.punto_emision }}</p>
+            <p class="card-text">Secuencial: {{ factura?.secuencial }}</p>
+            <p class="card-text">Fecha de Emisión: {{ factura?.fecha_emision | date }}</p>
+            <p class="card-text">Subtotal: {{ factura?.sub_total | currency }}</p>
+            <p class="card-text">Impuesto: {{ factura?.impuesto | currency }}</p>
+            <p class="card-text">Total: {{ factura?.total | currency }}</p>
+        </div>
+    </div>
+    <ng-template #loading>
+        <p>Cargando detalles de la factura...</p>
+    </ng-template>
+</div>

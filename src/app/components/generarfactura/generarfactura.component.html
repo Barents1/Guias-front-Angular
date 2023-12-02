@@ -1,0 +1,143 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Crear Nueva Factura</h2>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" (click)="volverAtras()">
+      <i class="fa fa-arrow-left"></i> Regresar
+    </button>
+  </div>
+  <form [formGroup]="forma" (ngSubmit)="guardar()">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Establecimiento</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="establecimiento"
+          placeholder="Establecimiento"
+          [class.is-invalid]="establecimientoNoValido"
+        />
+        <small *ngIf="establecimientoNoValido">
+          Ingrese un nombre de establecimiento de maximo 3 caractéres
+        </small>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Punto de Emisión</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="punto_emision"
+          placeholder="Punto de Emisión"
+          [class.is-invalid]="puntoEnisionNoValido"
+        />
+        <small *ngIf="puntoEnisionNoValido">
+          Ingrese un punto de emisión
+        </small>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Secuencial</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Secuencial"
+          formControlName="secuencial"
+          [class.is-invalid]="secuencialNoValido"
+        />
+        <small *ngIf="secuencialNoValido">
+          Ingrese valor numerico para secuencial
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Fecha de Emisión <i class="fa fa-calendar"></i></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Fecha de Emision"
+          formControlName="fecha_emision"
+          [class.is-invalid]="fechaNoValido"
+          bsDatepicker
+          [bsConfig]="{ dateInputFormat: 'YYYY MMMM Do, h:mm:ss a' }"
+        />
+
+        <small *ngIf="fechaNoValido"> Seleccione una fecha </small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="sub_total">Subtotal</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Subtotal"
+          formControlName="sub_total"
+          [class.is-invalid]="subTotalNoValido"
+        />
+        <small *ngIf="subTotalNoValido"> error al calcular el subtotal </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Impuesto</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Impuesto"
+        formControlName="impuesto"
+        [class.is-invalid]="impuestoNoValido"
+      />
+      <small *ngIf="impuestoNoValido"> error al calcular el impuesto </small>
+    </div>
+
+    <div class="form-group">
+      <label for="total">Total</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Total"
+        formControlName="total"
+        [class.is-invalid]="totalNoValido"
+      />
+      <small *ngIf="totalNoValido"> error al calcular el total </small>
+    </div>
+
+    <div class="form-group">
+      <label for="guias">Seleccionar Guías</label>
+      <select
+        multiple
+        class="form-control"
+        formControlName="guias_ids"
+        [class.is-invalid]="guiasNoValido"
+        >
+        <option
+          *ngFor="let guia of guias | slice:0:10; let i = index"
+          [value]="guia.guia_id"
+          (click)="calcularCosto()"
+        >
+          {{ i + 1 }} -- num guía: {{ guia.numero_guia }} -- De:
+          {{ guia.nombre_remitente }} -- Para: {{ guia.nombre_destinatario }} --
+          Fecha: {{ guia.fecha_envio }}
+        </option>
+      </select>
+      <small *ngIf="guiasNoValido">
+        Al menos debe seleccionar una guía para poder facturar
+      </small>
+    </div>
+    &nbsp;&nbsp;
+    <div class="form-group row my-2">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="col-8">
+        <button
+          type="submit"
+          class="form-control btn btn-outline-primary btn-block"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+    <div *ngIf="mostrarBotonVerFactura" class="text-center mt-3">
+        <a [routerLink]="['/factura', idFacturaGuardada]" class="btn btn-success">
+          Ver Factura
+        </a>
+      </div>
+  </form>
+</div>

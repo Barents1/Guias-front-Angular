@@ -1,0 +1,237 @@
+<h4 >Formulario <small> Guía </small></h4>
+<hr />
+
+<div class="row">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button 
+        class="btn btn-primary"
+        routerLink="/guias/">
+        <i class="fa fa-arrow-left"></i> Regresar
+    </button>
+  </div>
+</div>
+
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
+  <h5>Datos Remitente</h5>
+  <div>
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Número de guía</label>
+      *
+      <div class="col-8">
+        <input class="form-control" 
+                type="text" 
+                placeholder="Número de guía"
+                formControlName="numero_guia"
+                [class.is-invalid]="guiaNoValido"
+                />
+        <small *ngIf="guiaNoValido">
+            El número de guía ya existe
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Fecha envio</label>
+      *
+      <div class="col-8">
+        <input class="form-control" 
+                type="text" 
+                placeholder="Fecha de envio"
+                formControlName="fecha_envio" 
+                [class.is-invalid]="fechaNoValido"
+                bsDatepicker
+                [bsConfig]="{ dateInputFormat: 'YYYY MMMM Do, h:mm:ss a' }"
+                />
+                <small *ngIf="fechaNoValido">
+                  Seleccione una fecha
+              </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Pais de origen</label>
+      *
+      <div class="col-8">
+        <select 
+          class="form-control"
+          formControlName="pais_origen"
+          [class.is-invalid]="origenNoValido">
+          <option *ngFor="let pais of paises"
+                  [value]="pais.nombre">
+            {{ pais.nombre }}
+          </option>
+      </select>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Nombre remitente</label>
+      *
+      <div class="col-8">
+        <input
+            class="form-control"
+            type="text"
+            placeholder="Nombre remitente"
+            formControlName="nombre_remitente"
+            [class.is-invalid]="remitenteNoValido" />
+          <small *ngIf="remitenteNoValido">
+              Ingrese el nombre del remitente
+          </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label"> Dirección remitente </label>
+      *
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Dirección remitente"
+          formControlName="direccion_remitente"
+          [class.is-invalid]="direccion1NoValido" />
+        <small *ngIf="direccion1NoValido">
+            Ingrese una dirección
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Teléfono remitente</label>
+      &nbsp;&nbsp;
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Teléfono remitente"
+          formControlName="telefono_remitente"
+          [class.is-invalid]="telefono1NoValido" />
+        <small *ngIf="telefono1NoValido">
+            Ingrese un número valido ejemplo: +593 993284577
+        </small>
+      </div>
+      
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Email Remitente</label>
+      &nbsp;&nbsp;
+      <div class="col-8">
+        <input class="form-control" 
+                type="text" 
+                placeholder="País destino"
+                formControlName="email_remitente" 
+                [class.is-invalid]="email1NoValido" />
+        <small *ngIf="email1NoValido">
+            Ingrese una dirección de correo valido
+        </small>
+      </div>
+    </div>
+
+    <h5>Datos Destinatario</h5>
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">País destino</label>
+      *
+      <div class="col-8">
+        <select 
+          class="form-control"
+          formControlName="pais_destino"
+          [class.is-invalid]="destinoNoValido">
+          <option *ngFor="let pais of paises"
+                  [value]="pais.nombre">
+            {{ pais.nombre }}
+          </option>
+      </select>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Nombre destinatario</label>
+      *
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Nombre destinatario"
+          formControlName="nombre_destinatario"
+          [class.is-invalid]="destinatarioNoValido" />
+        <small *ngIf="destinatarioNoValido">
+            Ingrese nombre del destinatario
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Dirección destinatario</label>
+      *
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Dirección destinatario"
+          formControlName="direccion_destinatario"
+          [class.is-invalid]="direccion2NoValido" />
+        <small *ngIf="direccion2NoValido">
+            Ingrese la dirección del destinatario
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Teléfono destinatario</label>
+      &nbsp;&nbsp;
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Teléfono destinatario"
+          formControlName="telefono_destinatario"
+          [class.is-invalid]="telefono2NoValido" />
+        <small *ngIf="telefono2NoValido">
+            Ingrese un número de telefono valido ejemplo: +5939878547854
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Correo</label>
+      &nbsp;&nbsp;
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="email"
+          placeholder="Correo electrónico"
+          formControlName="email_destinatario"
+          [class.is-invalid]="email2NoValido" />
+          <small *ngIf="email2NoValido">
+              Ingrese una dirección de correo valido
+          </small>
+      </div>
+    </div>
+
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">Total</label>
+      *
+      <div class="col-8">
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Total"
+          formControlName="total"
+          [class.is-invalid]="totalNoValido" />
+        <small *ngIf="totalNoValido">
+            Ingrese el valor solo en números
+        </small>
+      </div>
+    </div>
+    <div class="form-group row my-2">
+      <label class="col-3 col-form-label">&nbsp;</label>
+      <div class="col-8">
+        <button type="submit" class="form-control btn btn-outline-primary btn-block">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+
+</form>

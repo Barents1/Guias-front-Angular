@@ -1,0 +1,31 @@
+<!-- home-pagos.component.html -->
+<div class="home-pagos-container">
+  <h1>Bienvenido al Módulo de Pagos</h1>
+  <p>Elige la operación que deseas realizar.</p>
+
+  <div class="opciones-pago">
+    <div class="opcion">
+      <a [routerLink]="['/realizar-pago/nuevo']">
+        <button class="btn btn-opcion">
+          <i class="fa fa-credit-card"></i>
+          Realizar un Pago
+        </button>
+      </a>
+      <p>Realiza pagos rápidos y seguros.</p>
+    </div>
+
+    <div class="opcion">
+      <a href="/pagos">
+        <button class="btn btn-opcion">Ver Pagos</button>
+      </a>
+      <p>Consulta el historial de tus pagos.</p>
+    </div>
+
+    <div class="opcion">
+      <a href="/home">
+        <button class="btn btn-opcion">Inicio</button>
+      </a>
+      <p>Administra tus métodos de pago y preferencias.</p>
+    </div>
+  </div>
+</div>

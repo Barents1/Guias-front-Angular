@@ -1,0 +1,106 @@
+button {
+    background-color: rgb(168, 63, 91);
+}
+
+.button1 {
+    background-color: #037404; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 2px 7px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    display: inline-block; /* Tipo de display */
+    font-size: 12px; /* Tamaño de fuente */
+    margin: 1.5px 1.5px; /* Margen alrededor del botón */
+    transition-duration: 0.4s; /* Duración de la transición */
+    cursor: pointer; /* Cursor en forma de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19); /* Sombra */
+}
+
+.button1:hover {
+    background-color: #95f196; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+.button2 {
+    background-color: #ff0000; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 2px 7px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    display: inline-block; /* Tipo de display */
+    font-size: 12px; /* Tamaño de fuente */
+    margin: 1.5px 1.5px; /* Margen alrededor del botón */
+    transition-duration: 0.4s; /* Duración de la transición */
+    cursor: pointer; /* Cursor en forma de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19); /* Sombra */
+
+}
+
+.button2:hover {
+    background-color: #f87397; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+thead  {
+    background-color: #fcdca649;
+    color: rgba(87, 76, 49, 0.755);
+    font-weight: 10;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .table thead tr {
+    background-color: #f8f9fa; /* Color suave para el encabezado */
+    color: #606060; /* Color de texto para el encabezado */
+    text-align: left;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px 10px;
+  }
+  
+  .table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Color alterno para las filas */
+  }
+  
+  .table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879; /* Color distintivo para la última fila */
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1; /* Color al pasar el cursor */
+  }
+
+.giro {
+    animation: giro 1s linear infinite;
+  }
+  
+  @keyframes giro {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+ }
+  
+
+
+  

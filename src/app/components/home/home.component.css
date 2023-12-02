@@ -1,0 +1,29 @@
+/* home.component.css */
+.home {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .home h1 {
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .home p {
+    margin-bottom: 20px;
+  }
+  
+  .home .card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home .card-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .home .card-title i {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  

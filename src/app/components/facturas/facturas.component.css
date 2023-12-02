@@ -1,0 +1,42 @@
+.button1 {
+    background-color: #03db06; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 5px 10px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    display: inline-block; /* Tipo de display */
+    font-size: 10px; /* Tamaño de fuente */
+    margin: 2px 2px; /* Margen alrededor del botón */
+    transition-duration: 0.4s; /* Duración de la transición */
+    cursor: pointer; /* Cursor en forma de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19); /* Sombra */
+}
+
+.button1:hover {
+    background-color: #95f196; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+.button2 {
+    background-color: #ff0000; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 5px 10px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    display: inline-block; /* Tipo de display */
+    font-size: 10px; /* Tamaño de fuente */
+    margin: 2px 2px; /* Margen alrededor del botón */
+    transition-duration: 0.4s; /* Duración de la transición */
+    cursor: pointer; /* Cursor en forma de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19); /* Sombra */
+
+}
+
+.button2:hover {
+    background-color: #f87397; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}

@@ -1,0 +1,66 @@
+<h1>Módulo de pagos</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary" (click)="volverAtras()">
+    <i class="fa fa-arrow-left"></i> Regresar
+  </button>
+</div>
+<div class="container">
+  <form [formGroup]="forma" (ngSubmit)="guardar()">
+    <div class="form-group">
+      <label for="invoice" class="form-label">Factura a pagar*</label>
+      <select
+        id="invoice"
+        class="form-select"
+        formControlName="fk_factura_id"
+        [class.is-invalid]="facturaNoValido"
+      >
+        <option
+          *ngFor="let factura of facturas; let i = index"
+          [value]="factura.factura_id"
+        >
+          {{ i + 1 }} - num factura: {{ factura.factura_id }} -- Emision:
+          {{ factura.punto_emision }}
+        </option>
+        <!-- Aquí se agregarán las opciones de las facturas disponibles -->
+      </select>
+      <small *ngIf="facturaNoValido">
+        Seleccione una factura para el pago
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="type" class="form-label">Tipo de pago*</label>
+      <select
+        id="type"
+        name="type"
+        class="form-select"
+        formControlName="tipo_pago"
+        [class.is-invalid]="tipoNoValido"
+      >
+        <option value="" disabled selected>Seleccione un tipo de pago</option>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Cheque">Cheque</option>
+        <option value="Tarjeta">Tarjeta</option>
+      </select>
+      <small *ngIf="tipoNoValido">
+        Seleccione un método de pago
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="amount" class="form-label">Valor a pagar*</label>
+      <input
+        type="number"
+        class="form-input"
+        placeholder="Valor a pagar"
+        formControlName="valor"
+        [class.is-invalid]="valorNoValido"
+      />
+      <small *ngIf="valorNoValido">
+        Ingrese el monto a pagar
+      </small>
+    </div>
+    <div class="form-group">
+      <button type="submit" id="submit" class="form-button">Pagar</button>
+    </div>
+    <div id="message" class="form-message"></div>
+  </form>
+</div>

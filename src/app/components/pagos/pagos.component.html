@@ -1,0 +1,39 @@
+<h1>Listado de Pagos</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary" (click)="volverAtras()">
+    <i class="fa fa-credit-card"></i> Ir a Pagos
+  </button>
+</div>
+<div class="container mt-4">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>N° Factura</th>
+          <th>Tipo de Pago</th>
+          <th>Valor Pagado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se agregarán las filas con los datos de los pagos realizados -->
+        <tr *ngFor="let pago of pagos; let i = index">
+          <td>{{ pago.fk_factura_id }}</td>
+          <td>{{ pago.tipo_pago }}</td>
+          <td>{{ pago.valor }}</td>
+          <td>
+            <button
+              class="button1 rm-1"
+              [routerLink]="['/realizar-pago', pago.pago_id]"
+            >
+              <i class="fa fa-pen"></i>
+            </button>
+            <button class="button2" (click)="EliminarFactura(pago, i)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

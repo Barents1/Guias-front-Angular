@@ -1,0 +1,72 @@
+<h5>Facturas <small>Generadas</small></h5>
+<hr />
+<div class="d-grid gap-1 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary" (click)="volverAtras()">
+    <i class="fa fa-arrow-left"></i> Regresar
+  </button>
+</div>
+<div class="container mt-2">
+  <h2 class="mb-4">Listado de Facturas</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID Factura</th>
+          <th>Establecimiento</th>
+          <th>Punto de Emisión</th>
+          <th>Secuencial</th>
+          <th>Fecha de Emisión</th>
+          <th>Subtotal</th>
+          <th>Impuesto</th>
+          <th>Total</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let factura of facturas; let i = index">
+          <td>{{ factura.factura_id }}</td>
+          <td>{{ factura.establecimiento }}</td>
+          <td>{{ factura.punto_emision }}</td>
+          <td>{{ factura.secuencial }}</td>
+          <td>{{ factura.fecha_emision | date }}</td>
+          <td>{{ factura.sub_total | currency }}</td>
+          <td>{{ factura.impuesto | currency }}</td>
+          <td>{{ factura.total | currency }}</td>
+          <td>
+            <button
+              class="button1 rm-1"
+              [routerLink]="['/crearFactura', factura.factura_id]"
+            >
+              <i class="fa fa-pen"></i>
+            </button>
+            <button class="button2" (click)="EliminarFactura(factura, i)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div
+      *ngIf="!cargando && facturas.length === 0"
+      class="alert alert-warning text-center mt3 animated fadeIn faster"
+    >
+      <h4 class="alert-heading">No hay registros</h4>
+      <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+      </p>
+      <p class="mb-0">Espere por favor</p>
+    </div>
+
+    <div
+      *ngIf="cargando"
+      class="alert alert-info text-center mt3 animated fadeIn faster"
+    >
+      <h4 class="alert-heading">Cargando</h4>
+      <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+      </p>
+      <p class="mb-0">Espere por favor</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Panel de Control de Facturas</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Facturas Totales</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ totalFacturas}} Facturas</h5>
+                    <p class="card-text">Visualiza todas las facturas emitidas hasta la fecha.</p>
+                    <a [routerLink]="['/Facturas']" class="btn btn-light">Ver Facturas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Crear Nueva Factura</div>
+                <div class="card-body">
+                    <h5 class="card-title">Emite una Nueva Factura</h5>
+                    <p class="card-text">Haz clic aquí para comenzar a crear una factura.</p>
+                    <a [routerLink]="['/crearFactura/nuevo']" class="btn btn-light">Crear Factura</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Últimas Facturas</div>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let factura of ultimasfacturas | slice:0:4; let i = index"
+                class="list-group-item">
+                Factura # {{factura.factura_id}}  -- Total ${{factura.total}}
+        </li>
+        </ul>
+    </div>
+</div>
